@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--translate these to other countries!-->
+
+    <string name="call911">Call 999</string>
+    <string name="emergencynumber">999</string>
+    <string name="callhelpline">Call Samaritans</string>
+    <string name="hotlinename">Samaritans</string>
+    <string name="helplinenumber">08457909090</string>
+    <string name="suicidepreventiondesc">If you are suicidal, I want you to know that virtually every person that I have talked with who attempted suicide, and survived, was glad that they lived. So the emotions that were causing the suicidal feelings did pass. Things got better; the sun did come out. So, let me extend that hope to you.
+\n\nPlease look at the Safety Plan module of this application. There, you can fill out a safety plan that can keep you safe during difficult times as well as find a list of helpful resources. </string> <!-- just get rid of the part that mentions suicide prevention lifeline -->
+    <string name="option2description">You can also press the button above to call the Samaritans hotline and fill out the safety plan with the assistance of a counselor. Once you reach a counselor, put the call on speakerphone and navigate back to this application. </string>
+<!-- customize this to the individual helpline -->
+    <string name="findhelpurl">http://twloha.com/find-help/united-kingdom/</string>
+    <string name="findtherapisturl">http://www.itsgoodtotalk.org.uk/therapists</string>
+</resources>

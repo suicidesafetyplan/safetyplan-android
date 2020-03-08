@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--translate these to other countries!-->
+
+    <string name="call911">Call 911</string>
+    <string name="emergencynumber">911</string>
+    <string name="callhelpline">Call Helpline</string>
+    <string name="hotlinename">National Suicide Prevention Lifeline</string>
+    <string name="helplinenumber">18002738255</string>
+    <string name="suicidepreventiondesc">If you are suicidal, I want you to know that virtually every person that I have talked with who attempted suicide, and survived, was glad that they lived. So the emotions that were causing the suicidal feelings did pass. Things got better; the sun did come out. So, let me extend that hope to you.
+\n\nPlease look at the Safety Plan module of this application. There, you can fill out a safety plan that can keep you safe during difficult times as well as find a list of helpful resources. Specifically, I want to encourage you to call the National Suicide Prevention Lifeline at 1-800-273-TALK (8255). They are there to help you, even if you are not in a suicidal crisis.
+</string> <!-- just get rid of the part that mentions suicide prevention lifeline -->
+    <string name="option2description">You can also press the button above to call the national suicide prevention lifeline and fill out the safety plan with the assistance of a Lifeline counselor. Once you reach a counselor, put the call on speakerphone and navigate back to this application. </string>
+<!-- customize this to the individual helpline -->
+    <string name="findhelpurl">http://www.cmha.ca/mental-health/find-help/</string>
+    <string name="findtherapisturl">http://www.goodtherapy.org/canada-counseling.htm</string>
+</resources>
