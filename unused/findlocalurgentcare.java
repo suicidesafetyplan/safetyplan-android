@@ -2,7 +2,7 @@ package com.moodtools.crisis.app;
 
 import android.app.ActionBar;
 import android.location.Location;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;

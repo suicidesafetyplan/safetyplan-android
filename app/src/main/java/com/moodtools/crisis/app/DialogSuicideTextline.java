@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 import android.util.Log;
 
 /**
@@ -38,7 +38,7 @@ public class DialogSuicideTextline extends DialogFragment {
                             Intent sendIntent = new Intent(Intent.ACTION_VIEW);
                             sendIntent.setData(Uri.parse("sms:"));
                             sendIntent.putExtra("address", textlinenumber);
-                            sendIntent.putExtra("sms_body", "Hello");
+                            sendIntent.putExtra("sms_body", "HOME");
                             startActivity(sendIntent);
                         }
                         catch(Exception e) {
