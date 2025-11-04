@@ -251,121 +251,95 @@ public class FragmentA extends Fragment implements View.OnClickListener {
         String number10=sharedprefs3.getString("NUMBER10","");
 
 
-        switch (v.getId()) {
-            case R.id.call911button:
-                String emergencynumber = getResources().getString(R.string.emergencynumber);
-                Bundle emergencybundle = new Bundle();
-                emergencybundle.putString("emergencynumber", emergencynumber);
-                DialogCall911 newFragment3 = new DialogCall911();
-                newFragment3.setArguments(emergencybundle);
-                newFragment3.show(getFragmentManager(), "dialog2");
+        int viewId = v.getId();
+        if (viewId == R.id.call911button) {
+            String emergencynumber = getResources().getString(R.string.emergencynumber);
+            Bundle emergencybundle = new Bundle();
+            emergencybundle.putString("emergencynumber", emergencynumber);
+            DialogCall911 newFragment3 = new DialogCall911();
+            newFragment3.setArguments(emergencybundle);
+            newFragment3.show(getFragmentManager(), "dialog2");
+        } else if (viewId == R.id.callhelplinebutton) {
+            // Create and show the dialog.
+            if(showphonenumbers) {
+                String suicidehotlinenumber = getResources().getString(R.string.helplinenumber);
+                String suicidehotlinename = getResources().getString(R.string.hotlinename);
+                DialogSuicideHotline newFragment = new DialogSuicideHotline();
+                Bundle suicidehotlinebundle = new Bundle();
+                suicidehotlinebundle.putString("hotlinenumber", suicidehotlinenumber);
+                suicidehotlinebundle.putString("hotlinename", suicidehotlinename);
+                newFragment.setArguments(suicidehotlinebundle);
+                newFragment.show(getFragmentManager(), "dialog");
+            }
+            else {
+                Intent i = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.befrienders.org/"));
+                startActivity(i);
+            }
+        } else if (viewId == R.id.textbutton1) {
+            //Create and show the dialog
+            String crisistextlinenumber = getResources().getString(R.string.textlinenumber);
+            String crisistextlinename = getResources().getString(R.string.textlinename);
+            DialogSuicideTextline newFragment2 = new DialogSuicideTextline();
+            Bundle textlinebuttonbundle = new Bundle();
+            textlinebuttonbundle.putString("textlinenumber", crisistextlinenumber);
+            textlinebuttonbundle.putString("textlinename", crisistextlinename);
+            newFragment2.setArguments(textlinebuttonbundle);
+            newFragment2.show(getFragmentManager(), "dialog");
+        } else if (viewId == R.id.findlocalemergencydepartmentbutton) {
+            //Because I can't get the maps working with places... here is an easy work around!
+            String url = "geo:0,0?q=Emergency Room";
+            Intent intent3 = new Intent(Intent.ACTION_VIEW,  Uri.parse(url));
+            startActivity(intent3);
+        } else if (viewId == R.id.findlocalurgentcarebutton) {
+            //Because google maps API is too much work for now... here's an easy workaround!
+            String url2 = "geo:0,0?q=Urgent Care";
+            Intent intent2 = new Intent(Intent.ACTION_VIEW,  Uri.parse(url2));
+            startActivity(intent2);
+            /*Intent intent = new Intent(getActivity(), findlocalurgentcare.class);
+            startActivity(intent);
 
-                break;
-
-            case R.id.callhelplinebutton:
-                // Create and show the dialog.
-                if(showphonenumbers) {
-                    String suicidehotlinenumber = getResources().getString(R.string.helplinenumber);
-                    String suicidehotlinename = getResources().getString(R.string.hotlinename);
-                    DialogSuicideHotline newFragment = new DialogSuicideHotline();
-                    Bundle suicidehotlinebundle = new Bundle();
-                    suicidehotlinebundle.putString("hotlinenumber", suicidehotlinenumber);
-                    suicidehotlinebundle.putString("hotlinename", suicidehotlinename);
-                    newFragment.setArguments(suicidehotlinebundle);
-                    newFragment.show(getFragmentManager(), "dialog");
-                }
-                else {
-                    Intent i = new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("https://www.befrienders.org/"));
-                    startActivity(i);
-
-                }
-
-                break;
-
-            case R.id.textbutton1:
-                //Create and show the dialog
-                String crisistextlinenumber = getResources().getString(R.string.textlinenumber);
-                String crisistextlinename = getResources().getString(R.string.textlinename);
-                DialogSuicideTextline newFragment2 = new DialogSuicideTextline();
-                Bundle textlinebuttonbundle = new Bundle();
-                textlinebuttonbundle.putString("textlinenumber", crisistextlinenumber);
-                textlinebuttonbundle.putString("textlinename", crisistextlinename);
-                newFragment2.setArguments(textlinebuttonbundle);
-                newFragment2.show(getFragmentManager(), "dialog");
-
-                break;
-
-
-            case R.id.findlocalemergencydepartmentbutton:
-                //Because I can't get the maps working with places... here is an easy work around!
-                String url = "geo:0,0?q=Emergency Room";
-                Intent intent3 = new Intent(Intent.ACTION_VIEW,  Uri.parse(url));
-                startActivity(intent3);
-                break;
-
-            case R.id.findlocalurgentcarebutton:
-                //Because google maps API is too much work for now... here's an easy workaround!
-                String url2 = "geo:0,0?q=Urgent Care";
-                Intent intent2 = new Intent(Intent.ACTION_VIEW,  Uri.parse(url2));
-                startActivity(intent2);
-                /*Intent intent = new Intent(getActivity(), findlocalurgentcare.class);
-                startActivity(intent);
-
-                */
-                break;
-            case R.id.callbutton1:
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number1));
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                break;
-            case R.id.callbutton2:
-                Intent intent4 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number2));
-                intent4.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent4);
-                break;
-            case R.id.callbutton3:
-                Intent intent5 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number3));
-                intent5.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent5);
-                break;
-            case R.id.callbutton4:
-                Intent intent6 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number4));
-                intent6.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent6);
-                break;
-            case R.id.callbutton5:
-                Intent intent7 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number5));
-                intent7.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent7);
-                break;
-            case R.id.callbutton6:
-                Intent intent8 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number6));
-                intent8.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent8);
-                break;
-            case R.id.callbutton7:
-                Intent intent9 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number7));
-                intent9.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent9);
-                break;
-            case R.id.callbutton8:
-                Intent intent11 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number8));
-                intent11.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent11);
-                break;
-            case R.id.callbutton9:
-                Intent intent12 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number9));
-                intent12.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent12);
-                break;
-            case R.id.callbutton10:
-                Intent intent13 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number10));
-                intent13.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent13);
-                break;
-
-
+            */
+        } else if (viewId == R.id.callbutton1) {
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number1));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } else if (viewId == R.id.callbutton2) {
+            Intent intent4 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number2));
+            intent4.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent4);
+        } else if (viewId == R.id.callbutton3) {
+            Intent intent5 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number3));
+            intent5.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent5);
+        } else if (viewId == R.id.callbutton4) {
+            Intent intent6 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number4));
+            intent6.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent6);
+        } else if (viewId == R.id.callbutton5) {
+            Intent intent7 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number5));
+            intent7.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent7);
+        } else if (viewId == R.id.callbutton6) {
+            Intent intent8 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number6));
+            intent8.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent8);
+        } else if (viewId == R.id.callbutton7) {
+            Intent intent9 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number7));
+            intent9.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent9);
+        } else if (viewId == R.id.callbutton8) {
+            Intent intent11 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number8));
+            intent11.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent11);
+        } else if (viewId == R.id.callbutton9) {
+            Intent intent12 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number9));
+            intent12.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent12);
+        } else if (viewId == R.id.callbutton10) {
+            Intent intent13 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number10));
+            intent13.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent13);
         }
     }
 

@@ -94,11 +94,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case R.id.mainquestionbutton:
-                questionclick();
-                return true;
-
+        if (id == R.id.mainquestionbutton) {
+            questionclick();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

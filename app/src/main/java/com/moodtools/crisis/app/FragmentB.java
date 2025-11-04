@@ -370,40 +370,25 @@ public class FragmentB extends Fragment implements View.OnClickListener{
         }
 
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.editwarningsignsbutton:
-                Intent intent = new Intent(getActivity(), editwarningsigns.class);
-                startActivity(intent);
-
-                break;
-
-            case R.id.editcopingstrategiesbutton:
-                Intent intent2 = new Intent(getActivity(), editcopingstrategies.class);
-                startActivity(intent2);
-
-                break;
-
-            case R.id.editplacesfordistractionbutton:
-                Intent intent3 = new Intent(getActivity(), editplacesfordistraction.class);
-                startActivity(intent3);
-                break;
-
-
-            case R.id.editcontactsbutton:
-                Intent intent5 = new Intent(getActivity(), editcontacts.class);
-                startActivity(intent5);
-                break;
-
-            case R.id.extranotesbutton:
-                Intent intent6 = new Intent(getActivity(), editextranote.class);
-                startActivity(intent6);
-                break;
-
-            case R.id.editworthlivingbutton:
-                Intent intent7 = new Intent(getActivity(), editreasontolive.class);
-                startActivity(intent7);
-                break;
-
+        int viewId = v.getId();
+        if (viewId == R.id.editwarningsignsbutton) {
+            Intent intent = new Intent(getActivity(), editwarningsigns.class);
+            startActivity(intent);
+        } else if (viewId == R.id.editcopingstrategiesbutton) {
+            Intent intent2 = new Intent(getActivity(), editcopingstrategies.class);
+            startActivity(intent2);
+        } else if (viewId == R.id.editplacesfordistractionbutton) {
+            Intent intent3 = new Intent(getActivity(), editplacesfordistraction.class);
+            startActivity(intent3);
+        } else if (viewId == R.id.editcontactsbutton) {
+            Intent intent5 = new Intent(getActivity(), editcontacts.class);
+            startActivity(intent5);
+        } else if (viewId == R.id.extranotesbutton) {
+            Intent intent6 = new Intent(getActivity(), editextranote.class);
+            startActivity(intent6);
+        } else if (viewId == R.id.editworthlivingbutton) {
+            Intent intent7 = new Intent(getActivity(), editreasontolive.class);
+            startActivity(intent7);
         }
     }
 

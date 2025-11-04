@@ -49,7 +49,7 @@ public class instructions extends AppCompatActivity {
     }
 
     public void watchsafetyplanvideo(View view) {
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=tfDruc0QDCc")));
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=tfDruc0QDCc")));
     }
 
     @Override

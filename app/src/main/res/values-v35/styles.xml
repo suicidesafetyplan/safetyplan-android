@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme for Android 15+ (API 35+) -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Opt out of edge-to-edge enforcement on Android 15+ -->
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    </style>
+
+    <!-- extend one of the Theme.AppCompat themes -->
+    <style name="Theme.MyMaterialTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- customize the color palette -->
+        <!-- colorPrimary is used for the default action bar background -->
+        <item name="colorPrimary">@color/mainblue</item>
+        <item name="colorPrimaryDark">@color/mainbluealt</item>
+        <item name="colorAccent">@color/mainblue</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:textColor">@color/black</item>
+        <!-- Opt out of edge-to-edge enforcement on Android 15+ -->
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    </style>
+
+    <style name="Theme.Settings" parent="@style/Theme.MyMaterialTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="toolbarStyle">@style/Widget.Toolbar</item>
+        <!-- Opt out of edge-to-edge enforcement on Android 15+ -->
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    </style>
+
+</resources>
