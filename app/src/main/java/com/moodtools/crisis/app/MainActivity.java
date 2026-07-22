@@ -5,14 +5,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
 import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.astuetz.PagerSlidingTabStrip;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.Locale;
 
@@ -46,42 +47,19 @@ public class MainActivity extends AppCompatActivity {
         //Put the following in a boolean at the beginning and then save it to sharedpreferences!
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items
-        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(), this));
+        ViewPager2 viewPager = findViewById(R.id.pager);
+        viewPager.setAdapter(new SampleFragmentPagerAdapter(this));
 
-        // Give the PagerSlidingTabStrip the ViewPager
-        PagerSlidingTabStrip tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.crisistabs);
+        TabLayout tabs = findViewById(R.id.crisistabs);
+        String[] tabTitles = {
+                getString(R.string.plan),
+                getString(R.string.guide),
+                getString(R.string.crisis)
+        };
 
-        //ADD STYLING TO THE PAGERSLIDINGTABSSTRIP
-        tabsStrip.setShouldExpand(true);
-        tabsStrip.setAllCaps(true);
-        tabsStrip.setDividerColor(R.color.gray);
-        tabsStrip.setIndicatorColorResource(R.color.white);
-        tabsStrip.setIndicatorHeight(15);
-
-
-        // Attach the view pager to the tab strip
-        tabsStrip.setViewPager(viewPager);
-        tabsStrip.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-            // This method will be invoked when a new page becomes selected.
-            @Override
-            public void onPageSelected(int position) {
-            }
-
-            // This method will be invoked when the current page is scrolled
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                // Code goes here
-            }
-
-            // Called when the scroll state changes:
-            // SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                // Code goes here
-            }
-        });
+        new TabLayoutMediator(tabs, viewPager,
+                (tab, position) -> tab.setText(tabTitles[position]))
+                .attach();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

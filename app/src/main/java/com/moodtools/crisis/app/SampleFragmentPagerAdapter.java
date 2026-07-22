@@ -1,29 +1,23 @@
 package com.moodtools.crisis.app;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 /**
  * Created by eddie_000 on 3/31/2015.
  */
-public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 3;
-    Context mContext;
+public class SampleFragmentPagerAdapter extends FragmentStateAdapter {
+    private static final int PAGE_COUNT = 3;
 
-    public SampleFragmentPagerAdapter(FragmentManager fm, Context context) {
-        super(fm);
-        mContext = context;
+    public SampleFragmentPagerAdapter(FragmentActivity fragmentActivity) {
+        super(fragmentActivity);
     }
 
+    @NonNull
     @Override
-    public int getCount() {
-        return PAGE_COUNT;
-    }
-
-    @Override
-    public Fragment getItem(int position) {
+    public Fragment createFragment(int position) {
         switch (position) {
             case 0: // Fragment # 0 - This will show FirstFragment
                 return FragmentB.newInstance(0);
@@ -36,10 +30,8 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
         }
     }
 
-        @Override
-        public CharSequence getPageTitle ( int position){
-            // Generate title based on item position
-            String tabTitles[] = new String[]{mContext.getString(R.string.plan), mContext.getString(R.string.guide), mContext.getString(R.string.crisis)};
-            return tabTitles[position];
-        }
+    @Override
+    public int getItemCount() {
+        return PAGE_COUNT;
     }
+}

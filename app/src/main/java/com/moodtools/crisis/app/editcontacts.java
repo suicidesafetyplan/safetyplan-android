@@ -1,6 +1,6 @@
 package com.moodtools.crisis.app;
 
-import android.app.ActionBar;
+import androidx.appcompat.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -109,10 +109,7 @@ public class editcontacts extends AppCompatActivity {
 
         // Show the custom action bar view and hide the normal Home icon and title.
         final androidx.appcompat.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayOptions(
-                ActionBar.DISPLAY_SHOW_CUSTOM,
-                ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME
-                        | ActionBar.DISPLAY_SHOW_TITLE);
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         actionBar.setCustomView(customActionBarView,
                 new androidx.appcompat.app.ActionBar.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
@@ -206,6 +203,7 @@ public class editcontacts extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1993 && resultCode == RESULT_OK) {
             // Get the URI and query the content provider for the phone number
             Uri contactUri = data.getData();

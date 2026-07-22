@@ -1,6 +1,6 @@
 package com.moodtools.crisis.app;
 
-import android.app.ActionBar;
+import androidx.appcompat.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -56,10 +56,7 @@ public class editcopingstrategies extends AppCompatActivity {
 
         // Show the custom action bar view and hide the normal Home icon and title.
         final androidx.appcompat.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayOptions(
-                ActionBar.DISPLAY_SHOW_CUSTOM,
-                ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME
-                        | ActionBar.DISPLAY_SHOW_TITLE);
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         actionBar.setCustomView(customActionBarView,
                 new androidx.appcompat.app.ActionBar.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,

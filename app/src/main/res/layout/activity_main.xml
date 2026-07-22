@@ -5,33 +5,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--<com.astuetz.PagerSlidingTabStrip
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/crisistabs"
-        android:background="@color/mainblue"
-        android:textColor="@color/white"
-        app:pstsShouldExpand="true"
-        app:pstsTextAllCaps="true"
-        app:pstsDividerColor="@color/gray"
-        app:pstsIndicatorColor="@color/lightlightgray"
-        app:pstsIndicatorHeight="5dp"
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
--->
-
-    <com.astuetz.PagerSlidingTabStrip
-        android:id="@+id/crisistabs"
+        android:layout_height="48dp"
         android:background="@color/mainblue"
-        android:textColor="@color/white"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorHeight="5dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/white" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:context=".MainActivity" />
 
-
-
-    <androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/pager"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity" />
-
-    </LinearLayout>
+</LinearLayout>
